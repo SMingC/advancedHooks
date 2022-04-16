@@ -1,35 +1,42 @@
 import React from "react"
 import styled from "styled-components"
 import FlutterBuild from "../components/builds/FlutterBuild"
+import { useWindowSize } from "react-use"
 
 import PurchaseButton from "../components/buttons/PurchaseButton"
 import CourseCard from "../components/cards/CourseCard"
-const IndexPage = () => (
-  <Wrapper>
-    <HeroWrapper>
-      <CourseCard />
-      <TextWrapper>
-        <Logo src="/images/logos/react-logo.svg" alt="logo" />
-        <Title>Build a web app with React Hooks</Title>
-        <Caption>20 sections - 3 hours of videos</Caption>
-        <Description>
-          Learn how we built the new Design+Code site with React Hooks using
-          Gatsby, Netlify, and advanced CSS techniques with Styled Components.
-        </Description>
-        <AuthorWrapper>
-          <AvatarImage src="/images/avatars/Meng.png" alt="avatar" />
-          <Caption>Taught by Meng To</Caption>
-        </AuthorWrapper>
-        <PurchaseButton />
-        <SmallText>
-          Purchase includes access to 30 courses. Over 80 hours of content,
-          including 12 hours for SwiftUI, for iOS 13 and iOS 14.
-        </SmallText>
-      </TextWrapper>
-    </HeroWrapper>
-    <FlutterBuild />
-  </Wrapper>
-)
+function IndexPage() {
+  const { width } = useWindowSize()
+
+  return (
+    <Wrapper>
+      <HeroWrapper>
+        <CourseCard />
+        <TextWrapper>
+          <Logo src="/images/logos/react-logo.svg" alt="logo" />
+          <Title>Build a web app with React Hooks</Title>
+          <Caption>20 sections - 3 hours of videos</Caption>
+          <Description>
+            Learn how we built the new Design+Code site with React Hooks using
+            Gatsby, Netlify, and advanced CSS techniques with Styled Components.
+          </Description>
+          <AuthorWrapper>
+            <AvatarImage src="/images/avatars/Meng.png" alt="avatar" />
+            <Caption>Taught by Meng To</Caption>
+          </AuthorWrapper>
+          <PurchaseButton />
+          <SmallText>
+            Purchase includes access to 30 courses. Over 80 hours of content,
+            including 12 hours for SwiftUI, for iOS 13 and iOS 14.
+          </SmallText>
+        </TextWrapper>
+      </HeroWrapper>
+      <FlutterWrapper width={width}>
+        <FlutterBuild />
+      </FlutterWrapper>
+    </Wrapper>
+  )
+}
 
 export default IndexPage
 
@@ -108,4 +115,13 @@ const SmallText = styled.p`
   font-size: 13px;
   line-height: 130%;
   color: rgba(255, 255, 255, 0.7);
+`
+
+const FlutterWrapper = styled.div`
+  margin: 100px auto;
+
+  @media (max-width: 1440px) {
+    transform-origin: top left;
+    transform: scale(${props => props.width / 1440});
+  }
 `
