@@ -5,7 +5,7 @@ function Circles() {
   const [animation, setAnimation] = useState(false)
 
   return (
-    <Wrapper onClick={() => setAnimation(true)}>
+    <Wrapper onClick={() => setAnimation(!animation)}>
       <Circle animation={animation} />
       <Circle2 animation={animation} />
     </Wrapper>
@@ -37,7 +37,7 @@ const Circle = styled.div`
   border-radius: 210px;
   left: calc(50% - 420px / 2);
   top: calc(50% - 420px / 2);
-  animation: ${scale} 5s 1s linear forwards;
+  animation: ${scale} 5s linear forwards;
   animation-play-state: ${props => (props.animation ? "running" : "paused")};
 `
 const Circle2 = styled(Circle)`

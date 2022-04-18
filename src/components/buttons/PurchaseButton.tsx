@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
 
@@ -8,10 +9,12 @@ function PurchaseButton() {
         <Icon src="/images/icons/credit.svg" />
         <Ring src="/images/icons/icon-ring.svg" />
       </IconWrapper>
-      <TextWrapper>
-        <Title>Get Pro Access</Title>
-        <Subtitle>$19 per month</Subtitle>
-      </TextWrapper>
+      <Link to="https://github.com/streamich/react-use/blob/master/docs/useClickAway.md">
+        <TextWrapper>
+          <Title>Get Pro Access</Title>
+          <Subtitle>$19 per month</Subtitle>
+        </TextWrapper>
+      </Link>
     </Wrapper>
   )
 }
@@ -31,6 +34,7 @@ const Wrapper = styled.div`
   grid-template-columns: 53px auto;
   align-items: center;
   gap: 20px;
+  cursor: pointer;
 
   *,
   & {
