@@ -62,6 +62,7 @@ const Grid = styled.div`
   box-shadow: 0px 50px 100px rgba(34, 79, 169, 0.3);
   backdrop-filter: blur(40px);
   border-radius: 20px;
+  cursor: pointer;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

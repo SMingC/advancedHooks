@@ -6,16 +6,19 @@ import { useWindowSize } from "react-use"
 import PurchaseButton from "../components/buttons/PurchaseButton"
 import CourseCard from "../components/cards/CourseCard"
 import GridSection from "../components/sections/GridSection"
+import { graphql } from "gatsby"
 
-function IndexPage() {
+function IndexPage({ data }) {
   const { width } = useWindowSize()
+  const illustration = data.allContentfulCourse.edges[0].node.illustration.url
 
   return (
     <Wrapper>
       <HeroWrapper>
-        <CourseCard />
+        <CourseCard illustration={illustration} />
         <TextWrapper>
           <Logo src="/images/logos/react-logo.svg" alt="logo" />
+
           <Title>Build a web app with React Hooks</Title>
           <Caption>20 sections - 3 hours of videos</Caption>
           <Description>
@@ -43,6 +46,26 @@ function IndexPage() {
 }
 
 export default IndexPage
+
+export const query = graphql`
+  query IndexPageQuery {
+    allContentfulCourse {
+      edges {
+        node {
+          title
+          sections {
+            title
+            description
+            duration
+          }
+          illustration {
+            url
+          }
+        }
+      }
+    }
+  }
+`
 
 const Wrapper = styled.div`
   background: linear-gradient(200.44deg, #4316db 13.57%, #9076e7 98.38%);
