@@ -1,20 +1,21 @@
 import { Link } from "gatsby"
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
+import { UserContext } from "../../context/UserContext"
 
 function PurchaseButton() {
+  const { isPro, setIsPro } = useContext(UserContext)
+
   return (
-    <Wrapper>
+    <Wrapper onClick={() => setIsPro(!isPro)}>
       <IconWrapper>
         <Icon src="/images/icons/credit.svg" />
         <Ring src="/images/icons/icon-ring.svg" />
       </IconWrapper>
-      <Link to="https://github.com/streamich/react-use/blob/master/docs/useClickAway.md">
-        <TextWrapper>
-          <Title>Get Pro Access</Title>
-          <Subtitle>$19 per month</Subtitle>
-        </TextWrapper>
-      </Link>
+      <TextWrapper>
+        <Title>{isPro ? "Start Learning" : "Get Pro Access"}</Title>
+        <Subtitle>{isPro ? "Over 120 hours" : "$19 per month"}</Subtitle>
+      </TextWrapper>
     </Wrapper>
   )
 }

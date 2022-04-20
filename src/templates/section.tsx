@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SectionContent from "../components/sections/SectionContetn"
+import Seo from "../components/seo"
 
 function Section(props) {
   const { data } = props
@@ -11,14 +12,15 @@ function Section(props) {
 
   return (
     <Layout>
+      <Seo title={sectionData.title} description={sectionData.description} />
       <Wrapper>
         <HeroWrapper>
           <Illustration src={sectionData.illustration.url} alt="illustration" />
           <Title>{sectionData.title}</Title>
           <Description>{sectionData.description}</Description>
         </HeroWrapper>
-        <SectionContent {...markdown} />
       </Wrapper>
+      <SectionContent {...markdown} />
     </Layout>
   )
 }

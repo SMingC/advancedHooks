@@ -8,6 +8,7 @@ import CourseCard from "../components/cards/CourseCard"
 import GridSection from "../components/sections/GridSection"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 function IndexPage({ data }) {
   const { width } = useWindowSize()
@@ -16,6 +17,7 @@ function IndexPage({ data }) {
 
   return (
     <Layout>
+      <Seo title="Advanced React Hooks"/>
       <Wrapper>
         <HeroWrapper>
           <CourseCard illustration={illustration} />
