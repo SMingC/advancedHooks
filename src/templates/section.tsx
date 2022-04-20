@@ -1,18 +1,25 @@
 import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import SectionContent from "../components/sections/SectionContetn"
 
 function Section(props) {
   const { data } = props
   const sectionData = data.contentfulAdvancedReact
+  const markdown = sectionData.content.childMarkdownRemark
+
   return (
-    <Wrapper>
-      <HeroWrapper>
-        <Illustration src={sectionData.illustration.url} alt="illustration" />
-        <Title>{sectionData.title}</Title>
-        <Description>{sectionData.description}</Description>
-      </HeroWrapper>
-    </Wrapper>
+    <Layout>
+      <Wrapper>
+        <HeroWrapper>
+          <Illustration src={sectionData.illustration.url} alt="illustration" />
+          <Title>{sectionData.title}</Title>
+          <Description>{sectionData.description}</Description>
+        </HeroWrapper>
+        <SectionContent {...markdown} />
+      </Wrapper>
+    </Layout>
   )
 }
 
@@ -26,6 +33,11 @@ export const sectionQuery = graphql`
       description
       illustration {
         url
+      }
+      content {
+        childMarkdownRemark {
+          htmlAst
+        }
       }
     }
   }

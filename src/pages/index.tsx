@@ -7,6 +7,7 @@ import PurchaseButton from "../components/buttons/PurchaseButton"
 import CourseCard from "../components/cards/CourseCard"
 import GridSection from "../components/sections/GridSection"
 import { graphql } from "gatsby"
+import Layout from "../components/layout"
 
 function IndexPage({ data }) {
   const { width } = useWindowSize()
@@ -14,35 +15,38 @@ function IndexPage({ data }) {
   const section = data.allContentfulCourse.edges[0].node.sections
 
   return (
-    <Wrapper>
-      <HeroWrapper>
-        <CourseCard illustration={illustration} />
-        <TextWrapper>
-          <Logo src="/images/logos/react-logo.svg" alt="logo" />
+    <Layout>
+      <Wrapper>
+        <HeroWrapper>
+          <CourseCard illustration={illustration} />
+          <TextWrapper>
+            <Logo src="/images/logos/react-logo.svg" alt="logo" />
 
-          <Title>Build a web app with React Hooks</Title>
-          <Caption>20 sections - 3 hours of videos</Caption>
-          <Description>
-            Learn how we built the new Design+Code site with React Hooks using
-            Gatsby, Netlify, and advanced CSS techniques with Styled Components.
-          </Description>
-          <AuthorWrapper>
-            <AvatarImage src="/images/avatars/Meng.png" alt="avatar" />
-            <Caption>Taught by Meng To</Caption>
-          </AuthorWrapper>
-          <PurchaseButton />
-          <SmallText>
-            Purchase includes access to 30 courses. Over 80 hours of content,
-            including 12 hours for SwiftUI, for iOS 13 and iOS 14.
-          </SmallText>
-        </TextWrapper>
-      </HeroWrapper>
-      <Divider />
-      <GridSection sections={section} />
-      <FlutterWrapper width={width}>
-        <FlutterBuild />
-      </FlutterWrapper>
-    </Wrapper>
+            <Title>Build a web app with React Hooks</Title>
+            <Caption>20 sections - 3 hours of videos</Caption>
+            <Description>
+              Learn how we built the new Design+Code site with React Hooks using
+              Gatsby, Netlify, and advanced CSS techniques with Styled
+              Components.
+            </Description>
+            <AuthorWrapper>
+              <AvatarImage src="/images/avatars/Meng.png" alt="avatar" />
+              <Caption>Taught by Meng To</Caption>
+            </AuthorWrapper>
+            <PurchaseButton />
+            <SmallText>
+              Purchase includes access to 30 courses. Over 80 hours of content,
+              including 12 hours for SwiftUI, for iOS 13 and iOS 14.
+            </SmallText>
+          </TextWrapper>
+        </HeroWrapper>
+        <Divider />
+        <GridSection sections={section} />
+        <FlutterWrapper width={width}>
+          <FlutterBuild />
+        </FlutterWrapper>
+      </Wrapper>
+    </Layout>
   )
 }
 
