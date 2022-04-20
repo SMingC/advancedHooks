@@ -11,6 +11,7 @@ import { graphql } from "gatsby"
 function IndexPage({ data }) {
   const { width } = useWindowSize()
   const illustration = data.allContentfulCourse.edges[0].node.illustration.url
+  const section = data.allContentfulCourse.edges[0].node.sections
 
   return (
     <Wrapper>
@@ -37,7 +38,7 @@ function IndexPage({ data }) {
         </TextWrapper>
       </HeroWrapper>
       <Divider />
-      <GridSection />
+      <GridSection sections={section} />
       <FlutterWrapper width={width}>
         <FlutterBuild />
       </FlutterWrapper>
@@ -57,6 +58,7 @@ export const query = graphql`
             title
             description
             duration
+            slug
           }
           illustration {
             url

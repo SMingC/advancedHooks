@@ -1,9 +1,10 @@
+import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import { Sections } from "../data/sections"
 import SectionRow from "../rows/SectionRow"
 
-function GridSection() {
+function GridSection(props) {
+  const { sections } = props
   return (
     <Wrapper>
       <Title>20 topics</Title>
@@ -12,14 +13,16 @@ function GridSection() {
         so that you can easily follow in a cohesive way.
       </Description>
       <Grid>
-        {Sections.map((section, index) => (
-          <SectionRow
-            key={index}
-            index={++index}
-            title={section.title}
-            description={section.description}
-            duration={section.duration}
-          />
+        {sections.map((section, index) => (
+          <Link to={`/${section.slug}`} key={index}>
+            <SectionRow
+              key={index}
+              index={++index}
+              title={section.title}
+              description={section.description}
+              duration={section.duration}
+            />
+          </Link>
         ))}
       </Grid>
     </Wrapper>

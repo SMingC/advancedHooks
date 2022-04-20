@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   max-width: 370px;
   padding: 10px;
   grid-template-columns: 36px auto;
-  gap: 10px;
+  gap: 10px; 
   background-blend-mode: overlay;
   mix-blend-mode: normal;
   border-radius: 10px;
@@ -36,7 +36,7 @@ const Wrapper = styled.div`
 
   :hover {
     background: rgba(68, 66, 178, 0.1);
-    box-shadow: inset 0px 0px 0px 0.5px rgba(68, 66, 178, 0.2);
+    box-shadow: inset 0px 0px 0px 0.5px rgba(68, 66, 178, 0.2 );
   }
 `
 
@@ -47,7 +47,7 @@ const Index = styled.div`
   background: rgba(68, 66, 179, 0.1);
   background-blend-mode: overlay;
   border-radius: 50%;
-  place-items: center;
+  place-content: center;
 
   font-style: normal;
   font-size: 20px;
