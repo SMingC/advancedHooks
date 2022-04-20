@@ -9,8 +9,8 @@ function PurchaseButton() {
   return (
     <Wrapper onClick={() => setIsPro(!isPro)}>
       <IconWrapper>
-        <Icon src="/images/icons/credit.svg" />
-        <Ring src="/images/icons/icon-ring.svg" />
+        <Icon src="/images/icons/credit.svg" alt="icon" />
+        <Ring src="/images/icons/icon-ring.svg" alt="ring" />
       </IconWrapper>
       <TextWrapper>
         <Title>{isPro ? "Start Learning" : "Get Pro Access"}</Title>
